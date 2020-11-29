@@ -4,7 +4,9 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from '@rollup/plugin-typescript';
 import livereload from "rollup-plugin-livereload";
-import { terser } from "rollup-plugin-terser";
+import {terser} from "rollup-plugin-terser";
+import alias from 'rollup-plugin-alias';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -23,13 +25,14 @@ export default {
       preprocess: autoPreprocess(),
       emitCss: false,
     }),
-    typescript({ sourceMap: !production }),
-
-    // If you have external dependencies installed from
-    // npm, you'll most likely need these plugins. In
-    // some cases you'll need additional configuration -
-    // consult the documentation for details:
-    // https://github.com/rollup/plugins/tree/master/packages/commonjs
+    typescript({sourceMap: !production}),
+    alias({
+      resolve: ['.ts', '.svelte'],
+      entries: {
+        pages: './src/pages',
+        lib: './src/lib',
+      }
+    }),
     resolve({
       browser: true,
       dedupe: ["svelte"],

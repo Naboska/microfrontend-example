@@ -1,11 +1,9 @@
-<script>
-  export let name;
+<script lang="ts">
+  import {Posts} from "pages";
+
+  export let theme;
 </script>
 
-<style>
-  section {
-    font-size: 1.5rem;
-  }
-</style>
+{JSON.stringify(theme)}
 
-<section>{name} is mounted!</section>
+<Posts/>
