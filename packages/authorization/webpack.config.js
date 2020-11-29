@@ -3,7 +3,7 @@ const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 
 module.exports = webpackConfigEnv => {
   const defaultConfig = singleSpaDefaults({
-    orgName: 'bizzen',
+    orgName: 'mfe',
     projectName: 'authorization',
     webpackConfigEnv
   });
