@@ -1,8 +1,9 @@
 import singleSpaSvelte from "single-spa-svelte";
-import App from "./App.svelte";
+
+import Root from "./Root.svelte";
 
 const svelteLifecycles = singleSpaSvelte({
-  component: App,
+  component: Root,
 });
 
 export const { bootstrap, mount, unmount } = svelteLifecycles;

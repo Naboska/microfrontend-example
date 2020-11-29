@@ -1,10 +1,11 @@
 import React from 'react';
 
-export const Root: React.FC = ({children}) => {
+import {PostPage} from 'pages';
+
+export const Root = () => {
   return (
-    <div>
-      <span>{children}</span>
-      <span>ya rodilsya</span>
-    </div>
+    <>
+      <PostPage />
+    </>
   );
 };

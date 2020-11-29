@@ -1,13 +1,15 @@
+import autoPreprocess from 'svelte-preprocess';
 import svelte from "rollup-plugin-svelte";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import typescript from '@rollup/plugin-typescript';
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "src/mfe-posts.js",
+  input: "src/mfe-posts.ts",
   output: {
     sourcemap: true,
     format: "system",
@@ -18,9 +20,10 @@ export default {
     svelte({
       // enable run-time checks when not in production
       dev: !production,
-
+      preprocess: autoPreprocess(),
       emitCss: false,
     }),
+    typescript({ sourceMap: !production }),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In

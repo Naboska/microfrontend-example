@@ -1,4 +1,4 @@
-import App from "./App.svelte";
+import App from "./Root.svelte";
 import { render } from "@testing-library/svelte";
 
 it("renders the App component", async () => {
