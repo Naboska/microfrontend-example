@@ -1,13 +1,3 @@
-import { createApplications } from './utils';
-import { TApplication } from "./types";
+import { root } from "./root";
 
-const applications: TApplication[] = [
-  {
-    name: '@mfe/post',
-    path: 'post'
-  }
-];
-
-const main = createApplications(applications);
-
-main.start();
+root.start();

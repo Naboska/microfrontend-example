@@ -34,7 +34,10 @@ module.exports = {
     path: getPath('dist')
   },
   resolve: {
-    extensions: ['js', '.ts', '.ejs'],
+    alias: {
+      lib: getPath('src/lib')
+    },
+    extensions: ['.ts'],
   },
   module: {
     rules: [

@@ -5,6 +5,7 @@
     "single-spa": "https://unpkg.com/single-spa/lib/system/single-spa.min.js",
 
     "@mfe/core": "http://localhost:3025/core.js",
-    "@mfe/post": "http://localhost:3026/mfe-post.js"
+    "@mfe/post": "http://localhost:3026/mfe-post.js",
+    "@mfe/posts": "http://localhost:3027/mfe-posts.js"
   }
 }
