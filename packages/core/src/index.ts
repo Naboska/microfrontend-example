@@ -3,8 +3,8 @@ import { TApplication } from "./types";
 
 const applications: TApplication[] = [
   {
-    name: '@mfe/authorization',
-    path: ''
+    name: '@mfe/post',
+    path: 'post'
   }
 ];
 

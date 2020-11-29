@@ -14,7 +14,7 @@ export const createApplications = (applications: TApplication[]) => {
     singleSpa.registerApplication({
       name,
       app: () => SystemJs.import(name),
-      activeWhen: (location: Location) => location.pathname.startsWith('/'),
+      activeWhen: (location: Location) => location.pathname.startsWith(`/${path}`),
       customProps: { ...globalProps, path }
     });
   }
