@@ -1,5 +1,5 @@
 {
-  "name": "@bizzen/authorization",
+  "name": "@mfe/authorization",
   "version": "0.0.1",
   "scripts": {
     "start": "webpack --watch",
