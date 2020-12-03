@@ -2,12 +2,18 @@ import * as singleSpa from 'single-spa';
 
 import { TApplication, theme } from 'lib';
 import { SystemJs } from './systemjs';
+import {createHistory} from "lib";
 
 export const createApplications = (applications: TApplication[]) => {
+  const history = createHistory();
+
   const globalProps = {
     applications,
-    theme
+    theme,
+    history
   };
+
+  history.subscribe((events) => console.log(events))
 
   const register = (application: TApplication): void => {
     const {name, path} = application;
