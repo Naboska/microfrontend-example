@@ -13,8 +13,6 @@ export const createApplications = (applications: TApplication[]) => {
     history
   };
 
-  history.subscribe((events) => console.log(events))
-
   const register = (application: TApplication): void => {
     const {name, path} = application;
     const isRootPath = path === '/';

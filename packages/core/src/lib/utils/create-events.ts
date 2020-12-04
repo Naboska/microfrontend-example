@@ -12,6 +12,7 @@ export const createEvents = <T extends Function>(): Events<T> => {
       return handlers.length;
     },
     push(fn: T) {
+      fn();
       handlers.push(fn);
 
       return () => {

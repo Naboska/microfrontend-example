@@ -1,9 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import { createNavigate } from "lib";
   import { getPost } from "./api";
   import { TPost } from "./types";
+
+  export let navigate;
 
   let data: TPost[] = [];
 
@@ -32,7 +33,7 @@
 
 <div class="posts">
     {#each data as post}
-        <section class="post" on:click={createNavigate(`/post/${post.id}`)}>
+        <section class="post" on:click={() => navigate(`/post/${post.id}`)}>
             <h2>{@html post.title.rendered}</h2>
             {@html post.excerpt.rendered}
         </section>

@@ -6,13 +6,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const getPath = (...p) => path.resolve(process.cwd(), ...p);
 
-const htmlPluginConfig = () => new HtmlWebpackPlugin({
-  inject: false,
-  template: getPath('src', 'html-template.ejs'),
-  templateParameters: {
-    isLocal: false,
-  },
-});
+// const htmlPluginConfig = () => new HtmlWebpackPlugin({
+//   inject: false,
+//   template: getPath('src', 'html-template.ejs'),
+//   templateParameters: {
+//     isLocal: false,
+//   },
+// });
 
 const copyPluginConfig = new CopyWebpackPlugin({
   patterns: [
@@ -31,7 +31,8 @@ module.exports = {
   output: {
     filename: "core.js",
     libraryTarget: "system",
-    path: getPath('dist')
+    path: getPath('dist'),
+    publicPath: '/'
   },
   resolve: {
     alias: {
@@ -55,7 +56,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    htmlPluginConfig(),
     copyPluginConfig
   ],
 };

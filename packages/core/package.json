@@ -4,7 +4,7 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 3025"
+    "serve": "serve --single dist -p 3025"
   },
   "dependencies": {
     "single-spa": "^5.8.2"
