@@ -7,7 +7,7 @@ export const Root = ({history}) => {
 
   const goBack = useCallback(() => {
     if (history.length > 1) history.back();
-    else history.push('/');
+    else history.replace('/');
   }, [history]);
 
   useEffect(() => {

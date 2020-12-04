@@ -40,12 +40,19 @@ export const createHistory = () => {
   }
 
   return {
+    get prev() {
+      console.log(context)
+      return context[context.length - 1] ?? null
+    },
     get length() {
       return context.length
     },
     subscribe(fn: THistoryEvent) {
       const subscriber = () => fn(context);
       return listener.push(subscriber);
+    },
+    replace(path: string) {
+      history.replaceState({}, path, path)
     },
     push(path: string) {
       history.pushState({}, path, path)
