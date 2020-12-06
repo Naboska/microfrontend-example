@@ -49,6 +49,7 @@ export const createHistory = () => {
     },
     subscribe(fn: THistoryEvent) {
       const subscriber = () => fn(context);
+      subscriber();
       return listener.push(subscriber);
     },
     replace(path: string) {

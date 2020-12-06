@@ -2,7 +2,7 @@ import * as singleSpa from 'single-spa';
 
 import { TApplication, theme } from 'lib';
 import { SystemJs } from './systemjs';
-import {createHistory} from "lib";
+import { createHistory } from "lib";
 
 export const createApplications = (applications: TApplication[]) => {
   const history = createHistory();

@@ -1,0 +1,30 @@
+<style>
+    .nav-ui {
+        background-color: {{props.theme.colors.primary_700}};
+    }
+
+    .nav-ui > menu {
+        margin: 0;
+    }
+
+    .nav-ui > menu > li {
+        color: {{props.theme.colors.white}};
+        padding: 10px;
+        list-style: none;
+    }
+
+    .nav-ui > menu > li:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+</style>
+
+<header class="nav-ui">
+    <menu>
+        {{#each state.applications}}
+            <li>
+                {{navName}}
+            </li>
+        {{/each}}
+    </menu>
+</header>
