@@ -18,5 +18,10 @@ export const applications: TApplication[] = [
     path: '/',
     navName: 'Главная',
     isNavVisible: true
+  },{
+    name: '@mfe/championship-map',
+    path: 'championship',
+    navName: 'Карта чемпионатов',
+    isNavVisible: true
   },
 ];

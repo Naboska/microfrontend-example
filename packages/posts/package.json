@@ -1,6 +1,7 @@
 {
   "name": "@mfe/posts",
   "version": "0.0.1",
+  "license": "ISC",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
