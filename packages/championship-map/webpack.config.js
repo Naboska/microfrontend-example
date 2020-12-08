@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const getPath = (...p) => path.resolve(process.cwd(), ...p);
 
 module.exports = {
-    entry: getPath('src', 'index.ts'),
+  externals: ["vue"],
+  entry: getPath('src', 'index.ts'),
     target: 'web',
     devtool: 'source-map',
     mode: 'development',
@@ -21,7 +22,8 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js', '.vue'],
         alias: {
-            vue: 'vue/dist/vue.min.js',
+          vue: '@vue/runtime-dom',
+          components: getPath('src/components')
         },
         modules: ['node_modules'],
     },

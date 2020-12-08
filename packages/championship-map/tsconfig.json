@@ -10,8 +10,8 @@
         "noUnusedLocals": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
-        "outDir": "./dist/",
-        "baseUrl": "."
+        "outDir": "../dist/",
+        "baseUrl": "src"
     },
     "exclude": [
         "node_modules",

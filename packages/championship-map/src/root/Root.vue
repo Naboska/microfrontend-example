@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <h1>Hello from Vue</h1>
-    <button @click="onConsole">check</button>
-  </div>
+    <span>{{ path }}</span>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { onMounted } from 'vue'
 
-@Component
-export default class HelloDecorator extends Vue {
-  @Prop() history: object;
+export default {
+  props: ['path'],
 
-  onConsole() {
-    console.log(this.history)
+  setup(props) {
+    onMounted(() => {
+      console.log(props)
+    })
   }
-}
+};
 </script>
 
