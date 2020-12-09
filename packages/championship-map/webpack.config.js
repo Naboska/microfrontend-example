@@ -23,7 +23,8 @@ module.exports = {
         extensions: ['.ts', '.js', '.vue'],
         alias: {
           vue: '@vue/runtime-dom',
-          components: getPath('src/components')
+          components: getPath('src/components'),
+          pages: getPath('src/pages'),
         },
         modules: ['node_modules'],
     },
