@@ -14,5 +14,5 @@ export const { bootstrap, mount } = lifecycles;
 
 export const unmount = (...args: any[]) => {
   appDestroy();
-  lifecycles.unmount(...args);
+  return lifecycles.unmount(...args);
 }

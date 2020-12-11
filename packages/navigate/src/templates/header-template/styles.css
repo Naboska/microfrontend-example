@@ -1,0 +1,19 @@
+.nav-ui {
+    background-color: var(--primary_700);
+}
+
+.nav-ui > menu {
+    display: flex;
+    margin: 0;
+}
+
+.nav-ui > menu > li {
+    color: var(--white);
+    padding: 10px;
+    list-style: none;
+}
+
+.nav-ui > menu > li:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

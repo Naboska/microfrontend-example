@@ -40,9 +40,11 @@ export const createHistory = () => {
   }
 
   return {
+    get context() {
+      return context;
+    },
     get prev() {
-      console.log(context)
-      return context[context.length - 1] ?? null
+      return context[context.length - 2] ?? null
     },
     get length() {
       return context.length
@@ -62,6 +64,5 @@ export const createHistory = () => {
       const lastPath = context[context.length - 2];
       return lastPath ? history.pushState({}, 'back page', lastPath.pathname) : null;
     },
-    context
   }
 }

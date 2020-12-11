@@ -24,7 +24,7 @@ module.exports = {
       lib: getPath('src/lib'),
       templates: getPath('src/templates'),
     },
-    extensions: ['.ts', '.ejs'],
+    extensions: ['.ts', '.ejs', '.js', '.css'],
   },
   module: {
     rules: [
@@ -41,6 +41,10 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: [{loader: "babel-loader"}]
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

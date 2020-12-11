@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-
   import { getPost } from "./api";
   import { TPost } from "./types";
 

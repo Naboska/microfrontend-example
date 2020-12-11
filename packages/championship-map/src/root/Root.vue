@@ -1,13 +1,13 @@
 <template>
   <main-layout />
-  <span>{{ path }}</span>
-  <button @click="getVars">getVariables</button>
 </template>
 
 <script lang="ts">
+import { onMounted, onUnmounted } from 'vue';
 import css from 'css-vars-adapter';
 
-import {MainLayout} from 'pages';
+import { MainLayout } from 'pages';
+import { createRootStyle } from './utils';
 
 export default {
   props: {
@@ -20,15 +20,17 @@ export default {
   },
   setup(props) {
     const { theme } = props;
+    const navigate = document.querySelector('[id$=navigate]');
 
-    css.setVariables(theme.colors);
-    props.setAppStyle((mainContainer: string) => `${mainContainer}, ${mainContainer} .single-spa-container { height: 100%; }`)
+    onMounted(() => {
+      css.setVariables(theme.colors, { replace: false });
+      props.setAppStyle(createRootStyle(navigate.clientHeight));
+    })
+
+    onUnmounted(() => {
+      props.setAppStyle('');
+    });
   },
-  methods: {
-    getVars() {
-      console.log(css.getVariables())
-    }
-  }
 };
 </script>
 

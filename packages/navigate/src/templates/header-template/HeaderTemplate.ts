@@ -1,14 +1,37 @@
 import { HtmlTemplate } from 'lib';
-import headerTemplate from './template.html';
 import { TApplication } from './types';
 
-type THeaderTemplate = {
-  applications: TApplication[]
+import headerTemplate from './template.html';
+import './styles.css';
+
+type THeaderTemplateState = {
+  applications: TApplication[];
 }
 
-export class HeaderTemplate extends HtmlTemplate<THeaderTemplate, THeaderTemplate> {
+type THeaderTemplateProps = {
+  applications: TApplication[];
+  history: {
+    push: (path: string) => void;
+    context: any[];
+  }
+}
+
+export class HeaderTemplate extends HtmlTemplate<THeaderTemplateProps, THeaderTemplateState> {
   state = { applications: [] }
   template = headerTemplate;
+  methods = {
+    navigate: {
+      type: 'click',
+      event: (event: MouseEvent, path: string) => {
+        const { history } = this.props;
+        const context = history.context;
+        const current = context[context.length - 1];
+
+        if (current.pathname !== path)
+          history.push(path === '/' ? path : `/${path}`);
+      }
+    }
+  }
 
   onAppMount() {
     const { applications } = this.props;

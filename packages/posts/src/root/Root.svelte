@@ -1,7 +1,6 @@
 <script lang="ts">
   import {Posts} from "pages";
 
-  export let theme;
   export let history;
 </script>
 
