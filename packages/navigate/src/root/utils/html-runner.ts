@@ -1,4 +1,4 @@
-import { IHtmlTemplate } from 'lib';
+import {IHtmlTemplate} from 'lib';
 
 export const htmlRunner = (tpl: any[]) => {
   let templates: IHtmlTemplate[] = [];
@@ -11,10 +11,13 @@ export const htmlRunner = (tpl: any[]) => {
 
     appMount(props: any) {
       templates = tpl.map(Template => new Template(props));
-      return templates.map(template => {
+      const renderString = templates.map(template => {
         if (template.onAppMount) setTimeout(template.onAppMount.bind(template));
-        return template.render()
-      });
+
+        return template.render();
+      })
+
+      return renderString.join('');
     }
   }
 }

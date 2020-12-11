@@ -1,5 +1,11 @@
+<style>
+    .navigate-breadcrumbs {
+        margin: 0;
+    }
+</style>
+
 <div>
-    <menu>
+    <menu class="navigate-breadcrumbs">
         {{#each state.history}}
         <li>
             {{this.pathname}}

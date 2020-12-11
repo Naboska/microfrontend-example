@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "outDir": "dist",
-    "lib": ["es2019", "DOM"],
+    "lib": ["esnext", "DOM"],
     "module": "system",
     "target": "es5",
     "allowJs": true,
