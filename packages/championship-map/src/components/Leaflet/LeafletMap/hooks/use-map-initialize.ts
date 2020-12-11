@@ -6,7 +6,7 @@ export const useMapInitialize = (mapRef: Vue.Ref<HTMLElement>, options: any) => 
   const isMapInitialize = ref(false);
 
   onMounted(() => {
-    map.value = L.map(mapRef.value);
+    map.value = L.map(mapRef.value).setView([51.505, -0.09], 13);
     isMapInitialize.value = true;
   })
 
