@@ -1,5 +1,5 @@
 <template>
-  <LeafletMap>
+  <LeafletMap :options="mapOptions">
     <ul class="mfe-map-tiles">
       <li
         v-for="route in routes"
@@ -21,6 +21,7 @@
 <script lang="ts">
 import { LeafletMap, LeafletTileRoute } from 'components';
 import { useMapRouteTiles } from './hooks';
+import { MAP_CENTER, MAP_ZOOM } from './constants';
 
 export default {
   name: 'MainLayout',
@@ -34,7 +35,11 @@ export default {
     return {
       routes,
       setActiveRoute,
-      activeRoute
+      activeRoute,
+      mapOptions: {
+        center: MAP_CENTER,
+        zoom: MAP_ZOOM
+      }
     }
   }
 }

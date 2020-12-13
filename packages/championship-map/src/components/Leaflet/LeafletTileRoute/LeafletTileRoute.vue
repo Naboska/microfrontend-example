@@ -4,6 +4,7 @@
   import { useTileRoute } from './hooks';
 
   export default {
+    name: 'LeafletTileRoute',
     props: {
       activeRoute: String,
       route: Object

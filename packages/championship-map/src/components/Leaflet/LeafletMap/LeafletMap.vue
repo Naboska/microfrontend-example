@@ -5,16 +5,20 @@
 </template>
 
 <script lang="ts">
-  import { ref, provide } from 'vue';
+  import { ref, provide, PropType } from 'vue';
 
   import './leaflet.css';
   import { useMapInitialize } from './hooks';
+  import { TMapOptions } from './types';
 
   export default {
     name: 'LeafletMap',
-    setup() {
+    props: {
+      options: Object as PropType<TMapOptions>,
+    },
+    setup(props) {
       const mapRef = ref<HTMLDivElement>(null);
-      const { map, isMapInitialize } = useMapInitialize(mapRef, {});
+      const { map, isMapInitialize } = useMapInitialize(mapRef, props.options);
 
       provide('map', map);
 

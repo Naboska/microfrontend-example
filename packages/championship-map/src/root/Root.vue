@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { onMounted, onUnmounted } from 'vue';
+import { onBeforeMount, onUnmounted } from 'vue';
 import css from 'css-vars-adapter';
 
 import { MainLayout } from 'pages';
@@ -22,7 +22,7 @@ export default {
     const { theme } = props;
     const navigate = document.querySelector('[id$=navigate]');
 
-    onMounted(() => {
+    onBeforeMount(() => {
       css.setVariables(theme.colors, { replace: false });
       props.setAppStyle(createRootStyle(navigate.clientHeight));
     })
