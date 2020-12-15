@@ -1,5 +1,5 @@
 {
-  "name": "bizzen",
+  "name": "microfrontend_example",
   "private": true,
   "scripts": {
     "build": "yarn workspaces run build",

@@ -2,7 +2,7 @@
   <main-layout />
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { onBeforeMount, onUnmounted } from 'vue';
 import css from 'css-vars-adapter';
 
@@ -13,10 +13,10 @@ export default {
   props: {
     path: String,
     theme: Object,
-    setAppStyle: Function
+    setAppStyle: Function,
   },
   components: {
-    MainLayout
+    MainLayout,
   },
   setup(props) {
     const { theme } = props;
@@ -25,7 +25,7 @@ export default {
     onBeforeMount(() => {
       css.setVariables(theme.colors, { replace: false });
       props.setAppStyle(createRootStyle(navigate.clientHeight));
-    })
+    });
 
     onUnmounted(() => {
       props.setAppStyle('');

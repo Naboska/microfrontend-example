@@ -1,9 +1,9 @@
 import Vue, { ref, onMounted } from 'vue';
 import L, { Map } from 'leaflet';
 
-import {TMapOptions} from "../types";
+import { TMapOptions } from '../types';
 
-export const useMapInitialize = (mapRef: Vue.Ref<HTMLElement>, {center, zoom}: TMapOptions) => {
+export const useMapInitialize = (mapRef: Vue.Ref<HTMLElement>, { center, zoom }: TMapOptions) => {
   const map = ref<Map>(null);
   const isMapInitialize = ref(false);
 
@@ -14,6 +14,6 @@ export const useMapInitialize = (mapRef: Vue.Ref<HTMLElement>, {center, zoom}: T
 
   return {
     map,
-    isMapInitialize
-  }
-}
+    isMapInitialize,
+  };
+};

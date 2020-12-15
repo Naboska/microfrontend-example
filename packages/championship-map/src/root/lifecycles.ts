@@ -5,20 +5,20 @@ import Root from './Root.vue';
 
 const vueLifecycles = singleSpaVue({
   createApp,
-    appOptions: {
-      render() {
-        const path: string = this.path;
-        const theme: any = this.theme;
-        const setAppStyle: any = this.setAppStyle;
+  appOptions: {
+    render() {
+      const component: any = Root;
 
-        return h(Root, {
-          path,
-          theme,
-          setAppStyle
-        })
-      }
-    }
-  })
-;
+      const path: string = this.path;
+      const theme: any = this.theme;
+      const setAppStyle: any = this.setAppStyle;
 
+      return h(component, {
+        path,
+        theme,
+        setAppStyle,
+      });
+    },
+  },
+});
 export const { bootstrap, mount, unmount } = vueLifecycles;

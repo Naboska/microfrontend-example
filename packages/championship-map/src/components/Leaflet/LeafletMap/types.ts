@@ -1,6 +1,6 @@
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression } from 'leaflet';
 
 export type TMapOptions = {
-  center: LatLngExpression,
-  zoom: number
-}
+  center: LatLngExpression;
+  zoom: number;
+};

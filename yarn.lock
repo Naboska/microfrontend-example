@@ -3837,10 +3837,15 @@ css-select@^1.1.0:
     domutils "1.5.1"
     nth-check "~1.0.1"
 
-css-vars-adapter@0.1.4, css-vars-adapter@^0.1.4:
+css-vars-adapter@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/css-vars-adapter/-/css-vars-adapter-0.1.4.tgz#f69f9796bfa8f685dc63db3b9cd402f17f098a73"
   integrity sha512-7lOqzRMmlo6jWX285zsP9QfWHL0wPGoGE2QpC3RYqphfPcirH0Sq5qEm4iLa7qIfuQySFiQpFnLiP/lCRM5/sg==
+
+css-vars-adapter@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/css-vars-adapter/-/css-vars-adapter-0.2.1.tgz#c37233b18f409edf4ad8621f594a28ce9373969e"
+  integrity sha512-8cNVwySqF7OXobZhcu7J1yl7DJwx1U9bMktTehVHpkZBZRV6aiMBSCnpn9CU/m/zmqnd5PCjcC1BNS8tlAEHSQ==
 
 css-what@2.1:
   version "2.1.3"
@@ -4538,6 +4543,13 @@ eslint-plugin-prettier@^3.1.1:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
   integrity sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
+  dependencies:
+    prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-prettier@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
+  integrity sha512-kOUSJnFjAUFKwVxuzy6sA5yyMx6+o9ino4gCdShzBNx4eyFRudWRYKCFolKjoM40PEiuU6Cn7wBLfq3WsGg7qg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -8632,7 +8644,7 @@ prettier-plugin-svelte@^1.1.0:
   resolved "https://registry.yarnpkg.com/prettier-plugin-svelte/-/prettier-plugin-svelte-1.4.1.tgz#2f0f7a149190f476dc9b4ba9da8d482bd196f1e2"
   integrity sha512-6y0m37Xw01GRf/WIHau+Kp3uXj2JB1agtEmNVKb9opMy34A6OMOYhfneVpNIlrghQSw/jIV+t3e5Ngt4up2CMA==
 
-prettier@^2.0.4, prettier@^2.0.5:
+prettier@^2.0.4, prettier@^2.0.5, prettier@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==

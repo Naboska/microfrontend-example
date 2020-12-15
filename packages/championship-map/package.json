@@ -15,7 +15,7 @@
         ]
     },
     "dependencies": {
-        "css-vars-adapter": "0.1.4",
+        "css-vars-adapter": "^0.2.1",
         "leaflet": "^1.7.1",
         "single-spa-vue": "^2.1.0",
         "vue": "^3.0.4"
@@ -36,9 +36,11 @@
         "eslint-config-standard": "^14.1.1",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.2.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
         "eslint-plugin-vue": "^7.0.1",
+        "prettier": "^2.2.1",
         "serve": "^11.3.2",
         "style-loader": "^2.0.0",
         "systemjs-webpack-interop": "^2.1.2",
