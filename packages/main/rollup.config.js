@@ -11,12 +11,12 @@ import alias from 'rollup-plugin-alias';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "src/mfe-posts.ts",
+  input: "src/mfe-main.ts",
   output: {
     sourcemap: true,
     format: "system",
     name: null, // ensure anonymous System.register
-    file: "dist/mfe-posts.js",
+    file: "dist/mfe-main.js",
   },
   plugins: [
     svelte({

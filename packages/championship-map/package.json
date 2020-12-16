@@ -15,7 +15,7 @@
         ]
     },
     "dependencies": {
-        "css-vars-adapter": "^0.2.1",
+        "css-vars-adapter": "^0.2.6",
         "leaflet": "^1.7.1",
         "single-spa-vue": "^2.1.0",
         "vue": "^3.0.4"

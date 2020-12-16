@@ -3,6 +3,8 @@
   import { getPost } from "./api";
   import { TPost } from "./types";
 
+  import { Header } from './components';
+
   export let navigate;
 
   let data: TPost[] = [];
@@ -29,6 +31,8 @@
         border-radius: 4px;
     }
 </style>
+
+<Header />
 
 <div class="posts">
     {#each data as post}

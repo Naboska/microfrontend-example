@@ -12,7 +12,7 @@ export const htmlRunner = (tpl: any[]) => {
 
     appMount(props: any) {
       templates = tpl.map(Template => new Template(props));
-      css.setVariables(props.theme.colors, { replace: false });
+      css.setVariables(props.theme, { replace: false });
 
       const renderString = templates.map(template => {
         if (template.onAppMount) setTimeout(template.onAppMount.bind(template));

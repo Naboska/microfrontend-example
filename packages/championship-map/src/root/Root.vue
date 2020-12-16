@@ -19,16 +19,18 @@ export default {
     MainLayout,
   },
   setup(props) {
-    const { theme } = props;
+    const { theme, setAppStyle } = props;
     const navigate = document.querySelector('[id$=navigate]');
 
+    console.log(theme)
+
     onBeforeMount(() => {
-      css.setVariables(theme.colors, { replace: false });
-      props.setAppStyle(createRootStyle(navigate.clientHeight));
+      css.setVariables(theme, { replace: false });
+      setAppStyle(createRootStyle(navigate.clientHeight));
     });
 
     onUnmounted(() => {
-      props.setAppStyle('');
+      setAppStyle('');
     });
   },
 };

@@ -8,17 +8,18 @@ export const applications: TApplication[] = [
     isNavVisible: false
   },
   {
+    name: '@mfe/main',
+    path: '/',
+    navName: 'Главная',
+    isNavVisible: true
+  },
+  {
     name: '@mfe/post',
     path: 'post/',
     navName: 'Пост',
     isNavVisible: false
   },
   {
-    name: '@mfe/posts',
-    path: '/',
-    navName: 'Главная',
-    isNavVisible: true
-  },{
     name: '@mfe/championship-map',
     path: 'championship',
     navName: 'Карта чемпионатов',

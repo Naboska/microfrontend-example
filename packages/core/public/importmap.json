@@ -7,8 +7,8 @@
     "css-vars-adapter": "https://unpkg.com/css-vars-adapter/dist/system/css-vars-adapter.production.js",
 
     "@mfe/core": "http://localhost:3025/core.js",
+    "@mfe/main": "http://localhost:3027/mfe-main.js",
     "@mfe/post": "http://localhost:3026/mfe-post.js",
-    "@mfe/posts": "http://localhost:3027/mfe-posts.js",
     "@mfe/navigate": "http://localhost:3028/mfe-navigate.js",
     "@mfe/championship-map": "http://localhost:3029/mfe-championship-map.js"
   }

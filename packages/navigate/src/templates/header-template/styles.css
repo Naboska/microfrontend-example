@@ -1,5 +1,5 @@
 .nav-ui {
-    background-color: var(--primary_700);
+    background-color: var(--colors-gray_900);
 }
 
 .nav-ui > menu {
@@ -8,12 +8,12 @@
 }
 
 .nav-ui > menu > li {
-    color: var(--white);
+    color: var(--colors-white);
     padding: 10px;
     list-style: none;
 }
 
 .nav-ui > menu > li:hover {
-    opacity: 0.6;
+    color: var(--colors-primary_500);
     cursor: pointer;
 }
