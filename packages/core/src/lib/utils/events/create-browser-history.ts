@@ -1,4 +1,4 @@
-import {createEvents} from "./create-events";
+import { createEvents } from "./create-events";
 
 type THistory = {
   pathname: string;
@@ -10,26 +10,32 @@ type THistory = {
 type THistoryEvent = (location: THistory[]) => void;
 
 const getLocation = (): THistory => {
-  const {pathname, search, hash, href} = window.location;
-  return {pathname, search, hash, href}
+  const { pathname, search, hash, href } = window.location;
+  return { pathname, search, hash, href }
 }
 
 const equalLocation = (current: THistory, check?: THistory) => {
   if (!check) return false;
-  return check.pathname === current.pathname && check.search === current.search && check.hash === current.hash
+
+  return (
+    check.pathname === current.pathname &&
+    check.search === current.search &&
+    check.hash === current.hash
+  )
 }
 
-export const createHistory = () => {
+export const createBrowserHistory = () => {
   let context: THistory[] = [getLocation()];
 
   const listener = createEvents<THistoryEvent>();
 
-  window.onpopstate = () => {
+  window.addEventListener('popstate', () => {
     const currentLocation = getLocation();
-    const {pathname, hash, search} = currentLocation;
+    const { pathname, hash, search } = currentLocation;
 
     const prev = context[context.length - 2];
-    const isCurrentPath = pathname === prev?.pathname && (hash === prev?.hash || search === prev?.search);
+    const isCurrentPath =
+      pathname === prev?.pathname && (hash === prev?.hash || search === prev?.search);
     const isPrevPage = equalLocation(currentLocation, prev);
     const isNeedReplace = isCurrentPath || isPrevPage;
     const sliceOn = isPrevPage ? -2 : -1
@@ -37,21 +43,23 @@ export const createHistory = () => {
     context = [...(isNeedReplace ? context.slice(0, sliceOn) : context), currentLocation]
 
     listener.call(context);
-  }
+  })
 
   return {
     get context() {
       return context;
     },
+    get current() {
+      return context[context.length - 1] ?? null;
+    },
     get prev() {
-      return context[context.length - 2] ?? null
+      return context[context.length - 2] ?? null;
     },
     get length() {
-      return context.length
+      return context.length;
     },
-    subscribe(fn: THistoryEvent) {
-      const subscriber = () => fn(context);
-      subscriber();
+    subscribe(subscriber: THistoryEvent) {
+      subscriber(context);
       return listener.push(subscriber);
     },
     replace(path: string) {
