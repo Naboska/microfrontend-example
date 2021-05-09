@@ -7,17 +7,24 @@ const createModuleNode = (name: string) => {
   return node;
 };
 
-export const domElementGetter = ({ name }: IAppProps): Element => {
-  const findNode = document.querySelector(`div[id$='${name}']`);
+export const domElementGetter = (config: IAppProps): Element | null => {
+  console.log(config);
+  if (config) {
+    const { name } = config;
 
-  if (!findNode) {
-    const root = document.body;
-    const moduleNode = createModuleNode(name);
+    const findNode = document.querySelector(`div[id$='${name}']`);
 
-    root.appendChild(moduleNode);
+    if (!findNode) {
+      const root = document.body;
+      const moduleNode = createModuleNode(name);
 
-    return moduleNode;
+      root.appendChild(moduleNode);
+
+      return moduleNode;
+    }
+
+    return findNode;
   }
 
-  return findNode;
+  return null;
 }

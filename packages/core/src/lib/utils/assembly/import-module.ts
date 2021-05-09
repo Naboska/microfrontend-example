@@ -8,7 +8,7 @@ export const importModule = <T extends CustomProps>(config: IAppProps): Promise<
   const loaderNode: HTMLElement = document.createElement('div');
   loaderNode.innerText = 'loading';
 
-  moduleNode.appendChild(loaderNode);
+  if (moduleNode) moduleNode.appendChild(loaderNode);
 
   return SystemJs.import<LifeCycles<T>>(config.name);
 }

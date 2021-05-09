@@ -1,61 +1,41 @@
-const path = require("path");
+const path = require('path');
 
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { merge } = require('webpack-merge');
+const singleSpaDefaults = require('webpack-config-single-spa-ts');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const getPath = (...p) => path.resolve(process.cwd(), ...p);
 
-// const htmlPluginConfig = () => new HtmlWebpackPlugin({
-//   inject: false,
-//   template: getPath('src', 'html-template.ejs'),
-//   templateParameters: {
-//     isLocal: false,
-//   },
-// });
-
-const copyPluginConfig = new CopyWebpackPlugin({
-  patterns: [
-    {from: 'public'}
-  ]
-});
-
-module.exports = {
-  entry: getPath('src', 'index.ts'),
-  externals: ["single-spa", /^@mfe\/.+$/],
-  mode: "development",
-  devtool: "source-map",
-  optimization: {
-    minimize: false
-  },
-  output: {
-    filename: "core.js",
-    libraryTarget: "system",
-    path: getPath('dist'),
-    publicPath: '/'
-  },
-  resolve: {
-    alias: {
-      lib: getPath('src/lib')
-    },
-    extensions: ['.ts'],
-  },
-  module: {
-    rules: [
-      {
-        parser: {
-          system: false
-        }
-      },
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: [{loader: "babel-loader"}]
-      },
-    ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    copyPluginConfig
-  ],
+const alias = {
+  lib: getPath('src/lib'),
 };
+
+module.exports = webpackConfigEnv => {
+  const defaultConfig = singleSpaDefaults({
+    orgName: 'mfe',
+    projectName: 'core',
+    webpackConfigEnv,
+    disableHtmlGeneration: true
+  });
+
+  return merge(defaultConfig, {
+    resolve: {
+      alias
+    },
+    devServer: {
+      hot: true,
+      port: 3025,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      }
+    },
+    plugins: [
+      new CopyPlugin({
+        patterns: [
+          { from: "public/", to: '.', force: true },
+        ],
+      }),
+    ]
+  })
+}

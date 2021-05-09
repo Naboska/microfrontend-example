@@ -6,7 +6,7 @@
     "vue": "https://unpkg.com/vue@3.0.4/dist/vue.runtime.global.prod.js",
     "css-vars-adapter": "https://unpkg.com/css-vars-adapter/dist/system/css-vars-adapter.production.js",
 
-    "@mfe/core": "http://localhost:3025/core.js",
+    "@mfe/core": "http://localhost:3025/mfe-core.js",
     "@mfe/main": "http://localhost:3027/mfe-main.js",
     "@mfe/post": "http://localhost:3026/mfe-post.js",
     "@mfe/navigate": "http://localhost:3028/mfe-navigate.js",
