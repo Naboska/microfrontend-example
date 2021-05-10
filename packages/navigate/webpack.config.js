@@ -20,6 +20,7 @@ module.exports = webpackConfigEnv => {
   });
 
   return merge(defaultConfig, {
+    externals: ['css-vars-adapter'],
     resolve: {
       alias,
       extensions: ['.ts', '.ejs', '.js', '.css'],
