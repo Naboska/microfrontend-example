@@ -1,1 +1,1 @@
-export * from './html-template';
+export { el } from './create-element';
