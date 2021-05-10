@@ -1,30 +1,14 @@
-import { el } from 'lib';
+import { TAppProps, eventSubscribers } from 'lib';
 
-type TAppProps = {
-  domElement: Element;
-};
+import { RootWidget } from './RootWidget';
 
 export const bootstrap = () => Promise.resolve();
 
-const CreateKek = () => {
-  console.log(this);
-  return el('span', null, 'kek');
-};
-
-export const mount = async ({ domElement }: TAppProps) => {
-  domElement.appendChild(
-    el(
-      'div',
-      {
-        click: (event: MouseEvent) => {
-          console.log(event);
-        },
-      },
-      CreateKek()
-    )
-  );
+export const mount = async (globalProps: TAppProps) => {
+  RootWidget(globalProps);
 };
 
 export const unmount = async ({ domElement }: TAppProps) => {
+  eventSubscribers.forEach(unsubscribe => unsubscribe());
   domElement.childNodes.forEach(el => domElement.removeChild(el));
 };

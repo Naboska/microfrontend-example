@@ -9,7 +9,7 @@ const getPath = (...p) => path.resolve(process.cwd(), ...p);
 
 const alias = {
   lib: getPath('src/lib'),
-  templates: getPath('src/templates'),
+  widgets: getPath('src/widgets'),
 };
 
 module.exports = webpackConfigEnv => {
@@ -31,14 +31,6 @@ module.exports = webpackConfigEnv => {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
       }
-    },
-    module: {
-      rules: [
-        {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
-        },
-      ],
     },
     plugins: [
       new CleanWebpackPlugin(),

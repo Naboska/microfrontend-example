@@ -1,0 +1,18 @@
+.header-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu > li {
+    padding: 10px;
+}
+
+.header-menu > li > a {
+    text-decoration: none;
+    color: var(--colors-primary_600);
+}
+.header-menu > li > a:hover {
+    color: var(--colors-primary_500);
+}

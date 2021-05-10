@@ -1,1 +1,2 @@
-export { el } from './create-element';
+export { eventSubscribers } from './event-subscribers';
+export { GlobalContext } from './global-context';
