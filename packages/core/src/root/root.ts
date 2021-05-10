@@ -1,6 +1,7 @@
-import { start } from "single-spa";
+import { start } from 'single-spa';
 
 import { createBrowserHistory, createLocale, registerModule, theme } from 'lib';
+
 import { applications } from './applications';
 
 export const root = async () => {
@@ -14,6 +15,7 @@ export const root = async () => {
 
     start();
   } catch ({ message }) {
+    // eslint-disable-next-line no-console
     console.log(message);
   }
 };

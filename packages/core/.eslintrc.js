@@ -14,7 +14,6 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript'
@@ -56,6 +55,6 @@ module.exports = {
       'newlines-between': 'always'
     }],
 
-    'sort-import': ['error', { ignoreDeclarationSort: true }]
+    'sort-imports': ['error', { ignoreDeclarationSort: true }]
   }
 }

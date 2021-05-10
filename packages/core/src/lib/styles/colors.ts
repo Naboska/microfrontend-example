@@ -8,4 +8,4 @@ export const colors = {
   primary_500: '#D3080A',
   primary_600: '#F60B0E',
   primary_700: '#47533e',
-}
+};

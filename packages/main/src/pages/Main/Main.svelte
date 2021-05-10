@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
+
   import { getPost } from "./api";
   import { TPost } from "./types";
-
   import { Header } from './components';
 
   export let navigate;

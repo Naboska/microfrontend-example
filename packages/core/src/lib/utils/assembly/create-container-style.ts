@@ -6,14 +6,12 @@ export const createContainerStyle = (name: string) => {
 
   document.head.append(container);
 
-  const styleName = name.replace('@', '\\@').replaceAll('/', '\\/')
+  const styleName = name.replace('@', '\\@').replaceAll('/', '\\/');
 
   return (styles: string | TStyleFn) => {
     const mainContainer = `[id$=${styleName}]`;
 
     container.innerHTML =
-      typeof styles === 'function'
-        ? styles(mainContainer)
-        : `${mainContainer} { ${styles} }`;
-  }
-}
+      typeof styles === 'function' ? styles(mainContainer) : `${mainContainer} { ${styles} }`;
+  };
+};

@@ -4,7 +4,7 @@ type Events<T> = {
   call: (arg: any) => void;
 };
 
-export const createEvents = <T extends Function>(): Events<T> => {
+export const createEvents = <T extends (ars?: any) => void>(): Events<T> => {
   let handlers: T[] = [];
 
   return {
@@ -20,6 +20,6 @@ export const createEvents = <T extends Function>(): Events<T> => {
     },
     call(arg) {
       handlers.forEach(fn => fn && fn(arg));
-    }
+    },
   };
-}
+};

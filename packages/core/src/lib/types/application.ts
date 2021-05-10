@@ -1,4 +1,4 @@
-import { AppProps} from "single-spa";
+import { AppProps } from 'single-spa';
 
 export type TApplication = {
   name: string;

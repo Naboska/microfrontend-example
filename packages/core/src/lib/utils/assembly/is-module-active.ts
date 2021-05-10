@@ -5,4 +5,4 @@ export const isModuleActive = (path: string) => (location: Location) => {
   if (isRootPath) return location.pathname === '/';
 
   return location.pathname.startsWith(path);
-}
+};

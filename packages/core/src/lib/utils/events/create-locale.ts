@@ -1,4 +1,4 @@
-import {createEvents} from "./create-events";
+import { createEvents } from './create-events';
 
 type TLocale = 'ru' | 'en';
 
@@ -23,6 +23,6 @@ export const createLocale = (initial: TLocale) => {
     subscribe(subscriber: TLocaleEvent) {
       subscriber(locale);
       return listener.push(subscriber);
-    }
-  }
-}
+    },
+  };
+};

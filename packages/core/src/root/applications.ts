@@ -1,28 +1,28 @@
-import { TApplication } from "lib";
+import { TApplication } from 'lib';
 
 export const applications: TApplication[] = [
   {
     name: '@mfe/navigate',
     path: '',
     navName: 'Навигация',
-    isNavVisible: false
+    isNavVisible: false,
   },
   {
     name: '@mfe/main',
     path: '/',
     navName: 'Главная',
-    isNavVisible: true
+    isNavVisible: true,
   },
   {
     name: '@mfe/post',
     path: 'post/',
     navName: 'Пост',
-    isNavVisible: false
+    isNavVisible: false,
   },
   {
     name: '@mfe/championship-map',
     path: 'championship',
     navName: 'Карта чемпионатов',
-    isNavVisible: true
+    isNavVisible: true,
   },
 ];

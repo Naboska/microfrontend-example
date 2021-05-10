@@ -1,4 +1,4 @@
-import { IAppProps } from "lib";
+import { IAppProps } from 'lib';
 
 const createModuleNode = (name: string) => {
   const node = document.createElement('div');
@@ -7,24 +7,17 @@ const createModuleNode = (name: string) => {
   return node;
 };
 
-export const domElementGetter = (config: IAppProps): Element | null => {
-  console.log(config);
-  if (config) {
-    const { name } = config;
+export const domElementGetter = ({ name }: Pick<IAppProps, 'name'>): Element => {
+  const findNode = document.querySelector(`div[id$='${name}']`);
 
-    const findNode = document.querySelector(`div[id$='${name}']`);
+  if (!findNode) {
+    const root = document.body;
+    const moduleNode = createModuleNode(name);
 
-    if (!findNode) {
-      const root = document.body;
-      const moduleNode = createModuleNode(name);
+    root.appendChild(moduleNode);
 
-      root.appendChild(moduleNode);
-
-      return moduleNode;
-    }
-
-    return findNode;
+    return moduleNode;
   }
 
-  return null;
-}
+  return findNode;
+};

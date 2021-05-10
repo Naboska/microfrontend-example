@@ -1,18 +1,18 @@
-import { createEvents } from "./create-events";
+import { createEvents } from './create-events';
 
 type THistory = {
   pathname: string;
   search: string;
   hash: string;
   href: string;
-}
+};
 
 type THistoryEvent = (location: THistory[]) => void;
 
 const getLocation = (): THistory => {
   const { pathname, search, hash, href } = window.location;
-  return { pathname, search, hash, href }
-}
+  return { pathname, search, hash, href };
+};
 
 const equalLocation = (current: THistory, check?: THistory) => {
   if (!check) return false;
@@ -21,8 +21,8 @@ const equalLocation = (current: THistory, check?: THistory) => {
     check.pathname === current.pathname &&
     check.search === current.search &&
     check.hash === current.hash
-  )
-}
+  );
+};
 
 export const createBrowserHistory = () => {
   let context: THistory[] = [getLocation()];
@@ -38,12 +38,12 @@ export const createBrowserHistory = () => {
       pathname === prev?.pathname && (hash === prev?.hash || search === prev?.search);
     const isPrevPage = equalLocation(currentLocation, prev);
     const isNeedReplace = isCurrentPath || isPrevPage;
-    const sliceOn = isPrevPage ? -2 : -1
+    const sliceOn = isPrevPage ? -2 : -1;
 
-    context = [...(isNeedReplace ? context.slice(0, sliceOn) : context), currentLocation]
+    context = [...(isNeedReplace ? context.slice(0, sliceOn) : context), currentLocation];
 
     listener.call(context);
-  })
+  });
 
   return {
     get context() {
@@ -63,14 +63,14 @@ export const createBrowserHistory = () => {
       return listener.push(subscriber);
     },
     replace(path: string) {
-      history.replaceState({}, path, path)
+      history.replaceState({}, path, path);
     },
     push(path: string) {
-      history.pushState({}, path, path)
+      history.pushState({}, path, path);
     },
     back() {
       const lastPath = context[context.length - 2];
       return lastPath ? history.pushState({}, 'back page', lastPath.pathname) : null;
     },
-  }
-}
+  };
+};
