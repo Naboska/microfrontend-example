@@ -1,5 +1,12 @@
 import { createEvents } from './create-events';
 
+type TSingleSpaTrigger = 'pushState' | 'replaceState';
+
+interface IPopStateEvent extends PopStateEvent {
+  singleSpa: boolean;
+  singleSpaTrigger: TSingleSpaTrigger;
+}
+
 type THistory = {
   pathname: string;
   search: string;
@@ -9,33 +16,30 @@ type THistory = {
 
 type THistoryEvent = (location: THistory[]) => void;
 
-const getLocation = (): THistory => {
+const getLocation = (opts: Partial<THistory> | null = null): THistory => {
   const { pathname, search, hash, href } = window.location;
-  return { pathname, search, hash, href };
+  return { pathname, search, hash, href, ...opts };
 };
 
-const equalLocation = (current: THistory, check?: THistory) => {
-  if (!check) return false;
-
-  return (
-    check.pathname === current.pathname &&
-    check.search === current.search &&
-    check.hash === current.hash
-  );
-};
+const equalLocation = (current: THistory, check: THistory) =>
+  check.pathname === current.pathname &&
+  check.search === current.search &&
+  check.hash === current.hash;
 
 export const createBrowserHistory = () => {
-  let context: THistory[] = [getLocation()];
-
   const listener = createEvents<THistoryEvent>();
 
-  window.addEventListener('popstate', () => {
+  let context: THistory[] = [getLocation({ hash: '' })];
+
+  window.addEventListener('popstate', ({ singleSpaTrigger }: IPopStateEvent) => {
+    if (singleSpaTrigger === 'replaceState') context[context.length - 1] = getLocation();
+
     const currentLocation = getLocation();
     const { pathname, hash, search } = currentLocation;
 
-    const prev = context[context.length - 2];
+    const prev = context[context.length - 2] ?? context[context.length - 1];
     const isCurrentPath =
-      pathname === prev?.pathname && (hash === prev?.hash || search === prev?.search);
+      pathname === prev.pathname && (hash === prev.hash || search === prev.search);
     const isPrevPage = equalLocation(currentLocation, prev);
     const isNeedReplace = isCurrentPath || isPrevPage;
     const sliceOn = isPrevPage ? -2 : -1;
@@ -64,6 +68,7 @@ export const createBrowserHistory = () => {
     },
     replace(path: string) {
       history.replaceState({}, path, path);
+      context[context.length - 1] = getLocation();
     },
     push(path: string) {
       history.pushState({}, path, path);

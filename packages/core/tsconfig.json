@@ -1,5 +1,5 @@
 {
-  "extends": "ts-config-single-spa",
+  "extends": "../../node_modules/ts-config-single-spa",
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
@@ -9,9 +9,7 @@
     "baseUrl": "./src",
     "allowJs": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "declaration": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

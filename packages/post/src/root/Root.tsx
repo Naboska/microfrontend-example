@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 
-import {PostPage} from 'pages';
+const PostPage = React.lazy(() => import('pages/PostPage').then(m => ({default: m.PostPage})));
 
 export const Root = ({history}) => {
   const goBack = useCallback(() => {
